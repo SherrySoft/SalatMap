@@ -1,0 +1,476 @@
+.map-view {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.leaflet-map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-secondary);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom Marker Styles */
+.custom-mosque-marker,
+.custom-user-marker {
+    background: none;
+    border: none;
+}
+
+.mosque-marker-icon,
+.user-marker-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.map-view {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 140px);
+    z-index: 1;
+}
+
+.leaflet-map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-secondary);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom Marker Styles */
+.custom-mosque-marker,
+.custom-user-marker {
+    background: none;
+    border: none;
+}
+
+.mosque-marker-icon,
+.user-marker-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.custom-mosque-marker:hover .mosque-marker-icon {
+    transform: scale(1.3);
+    filter: drop-shadow(0 6px 12px rgba(16, 185, 129, 0.4));
+}
+
+/* Map Search Container */
+.map-search-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 450px;
+    z-index: 1000;
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.map-search-input {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 30px;
+    border: none;
+    background: var(--color-primary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: white;
+}
+
+.map-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.map-search-input:focus {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: var(--color-primary-dark);
+}
+
+/* Search Results */
+.search-results {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 100%;
+    background: var(--color-bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-height: 320px;
+    overflow-y: auto;
+    animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateX(4px);
+}
+
+.result-icon {
+    font-size: 1.4rem;
+    margin-right: 14px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.result-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.result-name {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-address {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-no-results {
+    padding: 24px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Map Controls Container */
+.map-controls-container {
+    position: absolute;
+    bottom: 100px;
+    /* Adjusted to be above attribution/scale if needed, or just visual preference */
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 1000;
+    align-items: center;
+    pointer-events: auto;
+}
+
+/* Common Button Styles */
+.map-control-btn {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-control-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.map-control-btn:active {
+    transform: translateY(0);
+}
+
+/* Zoom Control Group (Pill Shape) */
+.zoom-control-group {
+    background: var(--color-primary);
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 48px;
+}
+
+.zoom-btn {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s ease;
+    padding: 0;
+}
+
+.zoom-icon {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.zoom-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.zoom-btn:active {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.zoom-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 32px;
+    margin: 0 auto;
+}
+
+/* Specific Button Adjustments */
+.location-btn {
+    margin-top: 8px;
+    /* Extra space for location button group */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .map-view {
+        height: calc(100vh - 120px);
+    }
+
+    .map-search-container {
+        top: 16px;
+        width: calc(100% - 32px);
+        max-width: none;
+    }
+
+    .map-search-input {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    .map-controls-container {
+        bottom: 80px;
+        right: 12px;
+        gap: 12px;
+    }
+
+    .map-control-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Separate Zoom Buttons on Mobile */
+    .zoom-control-group {
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        width: 44px;
+        gap: 12px;
+    }
+
+    .zoom-btn {
+        width: 44px;
+        height: 44px;
+        background: var(--color-primary);
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .zoom-divider {
+        display: none;
+    }
+
+    .search-results {
+        max-height: 240px;
+    }
+
+    .result-name {
+        font-size: 0.95rem;
+    }
+
+    .result-address {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-search-input {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+
+    .map-controls-container {
+        bottom: 90px;
+        /* Adjust for bottom nav */
+    }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .map-search-input {
+    background: var(--color-bg-card);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .map-search-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .search-results {
+    background: var(--color-bg-card);
+}
+
+[data-theme="dark"] .search-result-item {
+    border-bottom-color: var(--color-border);
+}
+
+[data-theme="dark"] .search-result-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .result-name {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .result-address {
+    color: var(--color-text-secondary);
+}
+
+/* Dark Mode for Controls - Keep them visible/consistent with theme */
+[data-theme="dark"] .map-control-btn,
+[data-theme="dark"] .zoom-control-group,
+[data-theme="dark"] .zoom-btn {
+    background: var(--color-bg-card);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .zoom-control-group {
+    background: var(--color-bg-card);
+}
+
+[data-theme="dark"] .map-control-btn:hover,
+[data-theme="dark"] .zoom-btn:hover {
+    background: var(--color-border);
+}
+
+[data-theme="dark"] .zoom-divider {
+    background: var(--color-border);
+}
+
+/* Mobile Dark Mode Zoom */
+@media (max-width: 768px) {
+    [data-theme="dark"] .zoom-control-group {
+        background: transparent;
+    }
+
+    [data-theme="dark"] .zoom-btn {
+        background: var(--color-bg-card);
+    }
+}

@@ -1,0 +1,194 @@
+.prayer-card {
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* Compact mode */
+.prayer-card.compact {
+    padding: var(--spacing-lg);
+}
+
+.prayer-card.compact .next-prayer-section {
+    margin-bottom: 0;
+}
+
+.prayer-card.compact .section-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.next-prayer-section {
+    background: linear-gradient(135deg, #0d9488 0%, #065f46 100%);
+    color: white;
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.next-prayer-info {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.prayer-name-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.prayer-icon-large {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.prayer-time-large {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+    letter-spacing: 0.05em;
+}
+
+.countdown {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-label {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.countdown-time {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent-light);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+}
+
+.all-prayers-section {
+    padding: var(--spacing-md) 0;
+}
+
+.section-subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text);
+}
+
+.prayer-times-grid {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.prayer-time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prayer-time-item:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
+    border-color: var(--color-primary-light);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.prayer-time-item.active {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(13, 148, 136, 0.05) 100%);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
+}
+
+.prayer-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.prayer-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.prayer-name {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+}
+
+.prayer-time {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.prayer-time-item.active .prayer-time {
+    color: var(--color-accent);
+    font-weight: 800;
+    font-size: var(--font-size-xl);
+}
+
+@media (max-width: 640px) {
+    .prayer-name-large {
+        font-size: var(--font-size-2xl);
+        flex-direction: column;
+    }
+
+    .prayer-icon-large {
+        font-size: 3rem;
+    }
+
+    .prayer-time-large {
+        font-size: var(--font-size-2xl);
+    }
+
+    .countdown-time {
+        font-size: var(--font-size-xl);
+    }
+
+    .next-prayer-section {
+        padding: var(--spacing-xl);
+    }
+}

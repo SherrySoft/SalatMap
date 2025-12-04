@@ -1,0 +1,87 @@
+.home-page {
+    flex: 1;
+    overflow: hidden;
+    padding-bottom: 80px;
+    /* Space for bottom navigation */
+    display: flex;
+    flex-direction: column;
+}
+
+.home-content {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.find-mosques-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-2xl);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When content is visible, shrink the button section */
+.find-mosques-section.content-visible {
+    height: auto;
+    min-height: 0;
+    padding: var(--spacing-xl) 0;
+    flex: 0 0 auto;
+}
+
+.prayer-section {
+    width: 100%;
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    margin-top: var(--spacing-xl);
+    overflow-y: auto;
+    /* Allow scrolling within this section if needed */
+    max-height: calc(100vh - 300px);
+    /* Adjust based on button size */
+}
+
+.mosque-section {
+    width: 100%;
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+    margin-top: var(--spacing-xl);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .home-content {
+        padding: var(--spacing-md);
+    }
+
+    .find-mosques-section {
+        padding: var(--spacing-xl);
+    }
+
+    .find-mosques-section.content-visible {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .home-content {
+        max-width: 700px;
+    }
+}

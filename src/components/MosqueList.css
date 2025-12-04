@@ -1,0 +1,227 @@
+.mosque-list {
+    padding: 1rem;
+    padding-bottom: 80px;
+    /* Space for bottom nav */
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+
+.mosque-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+}
+
+.mosques-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mosque-card {
+    background: var(--surface-card);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mosque-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+}
+
+.mosque-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.mosque-icon {
+    font-size: 1.5rem;
+    background: var(--primary-light);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.mosque-main-info {
+    flex: 1;
+}
+
+.mosque-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.distance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--surface-hover);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.mosque-address {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+.mosque-capacity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.facilities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.facility-tag {
+    background: var(--surface-hover);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+}
+
+/* Jamat Times Grid */
+.jamat-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    background: var(--surface-hover);
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.jamat-time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.jamat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.jamat-time {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-subtext {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* View All Section */
+.view-all-section {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.view-all-text {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.view-all-hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--surface-hover) 25%,
+            var(--surface-card) 50%,
+            var(--surface-hover) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}

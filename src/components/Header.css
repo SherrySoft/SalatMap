@@ -1,0 +1,158 @@
+.header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.app-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.app-name {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+}
+
+.app-tagline {
+    font-size: var(--font-size-xs);
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 400;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.location-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+.location-icon {
+    font-size: 1.1rem;
+}
+
+.location-text {
+    font-weight: 500;
+}
+
+/* Mobile Redesign */
+@media (max-width: 640px) {
+    .header {
+        padding: var(--spacing-md);
+    }
+
+    .header-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .header-title {
+        gap: var(--spacing-sm);
+    }
+
+    .app-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .app-name {
+        font-size: 1.25rem;
+    }
+
+    .app-tagline {
+        display: none;
+    }
+
+    .header-actions {
+        gap: var(--spacing-sm);
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .location-badge {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        max-width: 150px;
+    }
+
+    .location-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (max-width: 380px) {
+    .location-badge {
+        display: none;
+    }
+}

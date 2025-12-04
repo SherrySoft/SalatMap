@@ -1,0 +1,758 @@
+[
+    {
+        "id": 1,
+        "name": "Jami Masjid Fatima Al-Zahra",
+        "address": "Plot CC 73, Phase 1, Defence view, DHA, Karachi",
+        "latitude": 24.8370363,
+        "longitude": 67.0814479,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:45",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Masjid Mustafa",
+        "address": "2-B East St, D.H.A. Phase 1 Defence Housing Authority, Karachi",
+        "latitude": 24.8418519,
+        "longitude": 67.0619825,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Masjid Saad Bin Abi Waqas",
+        "address": "Main Korangi Rd, D.H.A. Phase 1 Defence Housing Authority, Karachi, 75500",
+        "latitude": 24.841585,
+        "longitude": 67.0593075,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:40",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Jami Masjid Abu Al-Qasim",
+        "address": "20th Street East, D.H.A. Phase 1 Sector A Akhtar Colony, Karachi",
+        "latitude": 24.8387,
+        "longitude": 67.0688,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Masjid Abu Bakr",
+        "address": "D.H.A. Phase 2 Phase 2 Defence Housing Authority, Karachi",
+        "latitude": 24.8351707,
+        "longitude": 67.0608241,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Jami Masjid Hafiz Ayaz Mahmood",
+        "address": "D.H.A Extension Phase 2 Commercial Area Defence Housing Authority, Karachi",
+        "latitude": 24.8334,
+        "longitude": 67.0690,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Masjid Tooba",
+        "address": "R3V5+8MF, Old Korangi Rd, Sabir SRE Karachi Cantonment, Phase 2 DHA Karachi",
+        "latitude": 24.8433203,
+        "longitude": 67.0541652,
+        "jamatTimes": {
+            "fajr": "06:15",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Jami Masjid Quba (Grand Mosque)",
+        "address": "R3R2+R83, Sabir SRE, PHASE 2 Defence Housing Authority, Karachi City",
+        "latitude": 24.8422037,
+        "longitude": 67.0808458,
+        "jamatTimes": {
+            "fajr": "06:10",
+            "dhuhr": "01:45",
+            "asr": "04:45",
+            "isha": "07:30",
+            "jumuah": "02:00"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Masjid Bab Al-Salam",
+        "address": "Golf Course Road 3, D.H.A. Phase 4 Defence Housing Authority, Karachi",
+        "latitude": 24.8291888,
+        "longitude": 67.0660511,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:45",
+            "asr": "04:35",
+            "isha": "07:40",
+            "jumuah": "01:50"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Jami Masjid Ibrahim",
+        "address": "11th Commercial St, Phase 4 Defence Housing Authority, Karachi",
+        "latitude": 24.8238677,
+        "longitude": 67.0627788,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Masjid Rahman",
+        "address": "7th Commercial Ln, D.H.A. Phase 4 Phase 4 Defence Housing Authority, Karachi",
+        "latitude": 24.8183118,
+        "longitude": 67.065402,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:20",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Jami Masjid Bait Al-Salam",
+        "address": "9th Commercial St, D.H.A. Phase 4 Defence Housing Authority, Karachi",
+        "latitude": 24.8241,
+        "longitude": 67.0527,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Masjid Abu Yazira",
+        "address": "R3H5+6F5, Gizri police station 11th Commercial St, off main jami road. Phase 4, D.H.A",
+        "latitude": 24.8275591,
+        "longitude": 67.0594362,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Masjid Shafqat",
+        "address": "5th Gizri Ln, D.H.A. Phase 4, Defence Housing Authority, Karachi",
+        "latitude": 24.818942,
+        "longitude": 67.0575351,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:20"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Masjid Sultan",
+        "address": "Phase 5, Defence Housing Authority, Karachi",
+        "latitude": 24.8177641,
+        "longitude": 67.0399202,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Jami Masjid Noor Al-Islam",
+        "address": "15th St, Zamzama, DHA 5, Karachi, Sindh",
+        "latitude": 24.8162351,
+        "longitude": 67.0386641,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:00"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Jami Masjid Abdul Aziz",
+        "address": "Khayaban-e-Mujahid, Khadda Market, DHA 5, Karachi, Sindh",
+        "latitude": 24.811988,
+        "longitude": 67.050336,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Jami Masjid Usman Ghani",
+        "address": "Abdul Sattar Edhi Ave - Sea View Road, Phase 5 Defence Housing Authority, Karachi",
+        "latitude": 24.8052,
+        "longitude": 67.0412,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:45",
+            "isha": "07:45",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Jami Masjid Siddiq Akbar",
+        "address": "R22Q+C9P, A St, Saba Commercial Sea View DHA Phase 5 Karachi City, Sindh 75500, Pakistan",
+        "latitude": 24.8010862,
+        "longitude": 67.0384425,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:40"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Masjid Saleem",
+        "address": "D.H.A Phase 6, Defence Housing Authority, Karachi",
+        "latitude": 24.801589,
+        "longitude": 67.0736689,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:05",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Masjid Ali",
+        "address": "135A Khayaban-e-Muhafiz, D.H.A Phase 6 Karachi",
+        "latitude": 24.795,
+        "longitude": 67.0605556,
+        "jamatTimes": {
+            "fajr": "06:15",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Masjid Amina",
+        "address": "Building number 15-c Lane 9 bukhari commercial dha phase 6 karachi",
+        "latitude": 24.7922682,
+        "longitude": 67.0675351,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:45",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Quran Academy Defence",
+        "address": "DM-55, 34th Street, Khayaban-e-Rahat, Darakhshan, Phase 6 Defence Housing Authority, Karachi",
+        "latitude": 24.79386335,
+        "longitude": 67.04482875,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "02:00"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Jami Masjid Umar Farooq",
+        "address": "R359+KMR, Khayaban-e-Rahat, D.H.A Phase 6 Defence Housing Authority, Karachi",
+        "latitude": 24.802243,
+        "longitude": 67.075412,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:45",
+            "asr": "04:30",
+            "isha": "07:45",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Jami Masjid Al-Kabeer",
+        "address": "R333+399, 20th Link St, D.H.A Phase 6 HILAL PARK Defence Housing Authority, Karachi",
+        "latitude": 24.80298735,
+        "longitude": 67.05303045,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:40"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Masjid Ayesha",
+        "address": "Creek Rd, D.H.A. Phase 7 Defence Housing Authority, Karachi",
+        "latitude": 24.8021691,
+        "longitude": 67.0778034,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Masjid Khadija Al-Kubra",
+        "address": "D.H.A. Phase 7 Defence Housing Authority, Karachi",
+        "latitude": 24.8145,
+        "longitude": 67.0723,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:20",
+            "asr": "04:45",
+            "isha": "07:45",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Jami Masjid Bilal",
+        "address": "D.H.A. Phase 7 Defence Housing Authority, Karachi,",
+        "latitude": 24.81991,
+        "longitude": 67.07469,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Masjid Fatima",
+        "address": "Khalid Commercial Area Phase 7 Extension Karachi, , Sindh",
+        "latitude": 24.873034,
+        "longitude": 67.056389,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Jami Masjid Amaan",
+        "address": "200 Ayubia Staff Lane 9, Phase 7 Ext Defence Housing Authority, Karachi",
+        "latitude": 24.873034,
+        "longitude": 67.056389,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:45",
+            "asr": "04:35",
+            "isha": "07:20",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Masjid Rabbi",
+        "address": "Khayaban e Farooq Amanat Commissioner CHS, Near Dhorajiwala Phase 7 Qabristan, Phase 7 Ext Karachi,",
+        "latitude": 24.8216306,
+        "longitude": 67.0780351,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:45",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "02:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Ameen - Musalla",
+        "address": "D.H.A. Phase 7 Commercial Area Defence Housing Authority, Karachi,",
+        "latitude": 24.830064260072614,
+        "longitude": 67.07348528817579,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "02:00"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Jami Musalla",
+        "address": "D.H.A. Phase 7 Commercial 10-A Street Defence Housing Authority, Karachi,",
+        "latitude": 24.873034,
+        "longitude": 67.056389,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:45",
+            "isha": "07:30",
+            "jumuah": "01:40"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Jami Masjid Zakariya",
+        "address": "Khayaban-e-Khalid &, 109 26th Street, DHA Karachi, Phase 8, Zone A",
+        "latitude": 24.7790929,
+        "longitude": 67.0739468,
+        "jamatTimes": {
+            "fajr": "06:20",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:20",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Masjid Bait Al-Aziz",
+        "address": "Plot M1 Iqbal Lane 5, D.H.A. Phase 8 Zone B Phase 8 , Karachi",
+        "latitude": 24.873034,
+        "longitude": 67.056389,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Masjid Rasheed",
+        "address": "17 D, DHA Karachi, Zone E Peninsula Commercial Area Phase 8, Karachi",
+        "latitude": 24.8805457,
+        "longitude": 67.086626,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Jami Masjid Noor Hanif",
+        "address": "Q3C5+2VV, Sahil Street No. 15B, D.H.A. Phase 8 Ext Khayaban-e-Iqbal, Karachi, , Pakistan",
+        "latitude": 24.77052449,
+        "longitude": 67.05987662,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:20",
+            "isha": "07:30",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Masjid Bajra",
+        "address": "Iqbal Lane 12/13 , Khayaban-e-Ghaznavi, DHA Karachi Zone B Phase 8 DHA Karachi",
+        "latitude": 24.771524,
+        "longitude": 67.089697,
+        "jamatTimes": {
+            "fajr": "06:30",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Jami Masjid Al-Noor",
+        "address": "Q39W+X9M, Khayaban-e-Shuja DHA Phase 8 Zone B , Karachi",
+        "latitude": 24.76157416,
+        "longitude": 67.08777471,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:15"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Jami Masjid Hamza",
+        "address": "No. 136 , Street 25 , Khayaban-e-Qasim Zone A Phase 8 DHA, Karachi",
+        "latitude": 24.765591,
+        "longitude": 67.064343,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Masjid Jan Hamza",
+        "address": "Q3RG+4JP, D.H.A. Phase 8 Zulfiqar & Al Murtaza Commercial Area Near Creek Mart",
+        "latitude": 24.79038193,
+        "longitude": 67.07661374,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:30",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:30"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Jami Masjid Yahya",
+        "address": "Q37R+HF, D.H.A. Phase 8 Ext Defence Housing Authority, Karachi, 75500, Pakistan",
+        "latitude": 24.77325405,
+        "longitude": 67.08084743,
+        "jamatTimes": {
+            "fajr": "06:25",
+            "dhuhr": "01:15",
+            "asr": "04:30",
+            "isha": "07:30",
+            "jumuah": "01:45"
+        },
+        "capacity": 500,
+        "facilities": [
+            "Wudu Area"
+        ]
+    }
+]
