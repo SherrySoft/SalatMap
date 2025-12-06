@@ -119,6 +119,47 @@ function SettingsView() {
                     )}
                 </div>
 
+                {/* Prayer Alarms */}
+                <div className="settings-section card">
+                    <h2 className="section-title">🔊 Prayer Alarms</h2>
+                    <p className="section-description">Play Adhan at prayer times</p>
+
+                    <div className="setting-row">
+                        <div className="setting-info">
+                            <span className="setting-label">Enable Alarms</span>
+                            <span className="setting-hint">Plays Adhan sound</span>
+                        </div>
+                        <label className="toggle-switch">
+                            <input
+                                type="checkbox"
+                                checked={settings.alarms?.enabled || false}
+                                onChange={(e) => updateNestedSetting('alarms', 'enabled', e.target.checked)}
+                            />
+                            <span className="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    {settings.alarms?.enabled && (
+                        <div className="prayer-toggles">
+                            {['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'].map(prayer => (
+                                <div key={prayer} className="setting-row">
+                                    <div className="setting-info">
+                                        <span className="setting-label">{prayer.charAt(0).toUpperCase() + prayer.slice(1)}</span>
+                                    </div>
+                                    <label className="toggle-switch">
+                                        <input
+                                            type="checkbox"
+                                            checked={settings.alarms?.[prayer] !== false}
+                                            onChange={(e) => updateNestedSetting('alarms', prayer, e.target.checked)}
+                                        />
+                                        <span className="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
                 {/* Language */}
                 <div className="settings-section card">
                     <h2 className="section-title">🌐 {t('language')}</h2>

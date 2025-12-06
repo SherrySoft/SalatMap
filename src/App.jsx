@@ -10,6 +10,8 @@ import mosquesData from './data/mosques.json';
 import MosqueDetailCard from './components/MosqueDetailCard';
 import SplashScreen from './components/SplashScreen';
 import { fetchMosquesFromSheets, isGoogleSheetsConfigured } from './utils/googleSheets';
+import { createNotificationChannel, scheduleAllAlarms } from './utils/alarmService';
+import { getSettings } from './utils/settings';
 import './styles/index.css';
 import './App.css';
 
@@ -32,6 +34,9 @@ function App() {
     // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Initialize notification channel for alarms
+    createNotificationChannel();
   }, []);
 
   const initializeApp = async () => {
@@ -77,6 +82,19 @@ function App() {
         userLocation.longitude
       );
       setMosques(sortedMosques);
+
+      // Schedule prayer alarms if enabled
+      const settings = getSettings();
+      if (settings.alarms?.enabled) {
+        const myMosqueId = localStorage.getItem('myMosqueId');
+        const myMosque = myMosqueId
+          ? sortedMosques.find(m => String(m.id) === myMosqueId)
+          : sortedMosques[0]; // Default to nearest mosque
+
+        if (myMosque) {
+          scheduleAllAlarms(myMosque, settings.alarms);
+        }
+      }
 
       setLoading(false);
     } catch (error) {

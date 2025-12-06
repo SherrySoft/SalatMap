@@ -14,6 +14,14 @@ export function getSettings() {
             enabled: false,
             reminderMinutes: 5
         },
+        alarms: {
+            enabled: false,
+            fajr: true,
+            dhuhr: true,
+            asr: true,
+            maghrib: true,
+            isha: true
+        },
         location: {
             autoDetect: true,
             manualLat: null,
