@@ -8,6 +8,13 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
     const [timeRemaining, setTimeRemaining] = useState('');
     const [nextPrayer, setNextPrayer] = useState(null);
     const [showReportModal, setShowReportModal] = useState(false);
+    const [isMyMosque, setIsMyMosque] = useState(false);
+
+    // Check if this mosque is the user's saved mosque
+    useEffect(() => {
+        const savedMosqueId = localStorage.getItem('myMosqueId');
+        setIsMyMosque(savedMosqueId === String(mosque?.id));
+    }, [mosque]);
 
     useEffect(() => {
         if (!mosque || !mosque.jamatTimes) return;
@@ -183,6 +190,22 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
                                 <span className="last-updated-date">{mosque.lastUpdated}</span>
                             </div>
                         )}
+
+                        <button
+                            className={`my-mosque-button ${isMyMosque ? 'active' : ''}`}
+                            onClick={() => {
+                                if (isMyMosque) {
+                                    localStorage.removeItem('myMosqueId');
+                                    setIsMyMosque(false);
+                                } else {
+                                    localStorage.setItem('myMosqueId', String(mosque.id));
+                                    setIsMyMosque(true);
+                                }
+                            }}
+                        >
+                            {isMyMosque ? '⭐ My Mosque' : '☆ Set as My Mosque'}
+                        </button>
+
                         <button className="direction-button" onClick={() => {
                             window.open(`https://www.google.com/maps/dir/?api=1&destination=${mosque.latitude},${mosque.longitude}`, '_blank');
                         }}>

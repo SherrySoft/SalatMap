@@ -248,3 +248,34 @@
         opacity: 1;
     }
 }
+
+/* My Mosque Button */
+.my-mosque-button {
+    width: 100%;
+    padding: 14px;
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+}
+
+.my-mosque-button:hover {
+    border-color: var(--color-primary);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.my-mosque-button.active {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.my-mosque-button.active:hover {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}

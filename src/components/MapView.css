@@ -416,3 +416,112 @@
         background: var(--color-bg-card);
     }
 }
+
+/* Zoom Tip */
+.map-zoom-tip {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-bg-card);
+    color: var(--color-text);
+    padding: 12px 20px;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    animation: fadeInUp 0.4s ease-out;
+    max-width: calc(100% - 40px);
+}
+
+.map-zoom-tip span {
+    white-space: nowrap;
+}
+
+.tip-dismiss {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.tip-dismiss:hover {
+    color: var(--color-text);
+}
+
+/* Mosque Popup */
+.mosque-popup .leaflet-popup-content-wrapper {
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 0;
+}
+
+.mosque-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+}
+
+.mosque-popup .leaflet-popup-tip {
+    background: var(--color-bg-card);
+}
+
+.mosque-popup-content {
+    padding: 16px;
+    min-width: 200px;
+}
+
+.popup-mosque-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 4px 0;
+}
+
+.popup-mosque-address {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 8px 0;
+}
+
+.popup-mosque-distance {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    margin: 0 0 12px 0;
+}
+
+.popup-view-times-btn {
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.popup-view-times-btn:hover {
+    background: var(--color-primary-dark);
+}
+
+[data-theme="dark"] .mosque-popup .leaflet-popup-content-wrapper,
+[data-theme="dark"] .mosque-popup .leaflet-popup-tip {
+    background: var(--color-bg-card);
+}
+
+[data-theme="dark"] .popup-mosque-name {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .popup-mosque-address {
+    color: var(--color-text-secondary);
+}

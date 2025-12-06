@@ -31,13 +31,6 @@ const userIcon = new L.divIcon({
 });
 
 // Icons
-const CompassIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-    </svg>
-);
-
 const LayersIcon = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -61,7 +54,7 @@ function MapFlyTo({ center }) {
     const map = useMap();
     useEffect(() => {
         if (center) {
-            map.flyTo(center, 15);
+            map.flyTo(center, 15, { duration: 0.5 });
         }
     }, [center, map]);
     return null;
@@ -100,7 +93,10 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredMosques, setFilteredMosques] = useState(mosques);
     const [flyToCenter, setFlyToCenter] = useState(null);
-    const [mapLayer, setMapLayer] = useState('street'); // 'street' or 'satellite'
+    const [mapLayer, setMapLayer] = useState('street');
+    const [showZoomTip, setShowZoomTip] = useState(() => {
+        return !localStorage.getItem('zoomTipDismissed');
+    });
 
     // Default center (Karachi DHA) if no location
     const defaultCenter = [24.8015, 67.0785];
@@ -137,8 +133,12 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
 
     const handleSearchSelect = (mosque) => {
         setFlyToCenter([mosque.latitude, mosque.longitude]);
-        onMosqueSelect(mosque);
-        setSearchQuery(''); // Clear search after selection
+        setSearchQuery('');
+    };
+
+    const dismissZoomTip = () => {
+        setShowZoomTip(false);
+        localStorage.setItem('zoomTipDismissed', 'true');
     };
 
     if (loading || !mapReady) {
@@ -185,12 +185,22 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                 )}
             </div>
 
+            {/* Zoom Tip */}
+            {showZoomTip && (
+                <div className="map-zoom-tip">
+                    <span>💡 Pinch to zoom or use the +/- buttons on the right</span>
+                    <button className="tip-dismiss" onClick={dismissZoomTip}>✕</button>
+                </div>
+            )}
+
             <MapContainer
                 center={center}
                 zoom={13}
                 scrollWheelZoom={true}
                 zoomControl={false}
                 preferCanvas={true}
+                updateWhenIdle={true}
+                updateWhenZooming={false}
                 className="leaflet-map"
                 ref={mapRef}
             >
@@ -199,12 +209,12 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
 
                 {mapLayer === 'street' ? (
                     <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+                        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                     />
                 ) : (
                     <TileLayer
-                        attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                        attribution='Tiles &copy; Esri'
                         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                     />
                 )}
@@ -221,20 +231,32 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                     </Marker>
                 )}
 
-                {/* Mosque markers */}
-                {filteredMosques && filteredMosques.map((mosque) => (
+                {/* Mosque markers with popup */}
+                {filteredMosques && filteredMosques.map((mosque) =>
                     mosque.latitude && mosque.longitude && (
                         <Marker
                             key={mosque.id}
                             position={[mosque.latitude, mosque.longitude]}
                             icon={mosqueIcon}
-                            eventHandlers={{
-                                click: () => onMosqueSelect(mosque),
-                            }}
                         >
+                            <Popup className="mosque-popup">
+                                <div className="mosque-popup-content">
+                                    <h4 className="popup-mosque-name">{mosque.name}</h4>
+                                    <p className="popup-mosque-address">{mosque.address}</p>
+                                    {mosque.distance !== undefined && (
+                                        <p className="popup-mosque-distance">📍 {formatDistance(mosque.distance)}</p>
+                                    )}
+                                    <button
+                                        className="popup-view-times-btn"
+                                        onClick={() => onMosqueSelect(mosque)}
+                                    >
+                                        View Prayer Times
+                                    </button>
+                                </div>
+                            </Popup>
                         </Marker>
                     )
-                ))}
+                )}
             </MapContainer>
         </div>
     );
