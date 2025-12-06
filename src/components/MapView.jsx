@@ -98,6 +98,16 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
         return !localStorage.getItem('zoomTipDismissed');
     });
 
+    // Auto-dismiss zoom tip after 3 seconds
+    useEffect(() => {
+        if (showZoomTip) {
+            const timer = setTimeout(() => {
+                setShowZoomTip(false);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showZoomTip]);
+
     // Default center (Karachi DHA) if no location
     const defaultCenter = [24.8015, 67.0785];
     const center = location ? [location.latitude, location.longitude] : defaultCenter;
@@ -188,8 +198,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
             {/* Zoom Tip */}
             {showZoomTip && (
                 <div className="map-zoom-tip">
-                    <span>💡 Pinch to zoom or use the +/- buttons on the right</span>
-                    <button className="tip-dismiss" onClick={dismissZoomTip}>✕</button>
+                    <span>Pinch or use +/- to zoom</span>
                 </div>
             )}
 

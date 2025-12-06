@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getSettings, saveSettings, CALCULATION_METHODS, LANGUAGES, REMINDER_OPTIONS } from '../utils/settings';
+import { getSettings, saveSettings, LANGUAGES, REMINDER_OPTIONS } from '../utils/settings';
 import { requestNotificationPermission } from '../hooks/useMyMosque';
+import { useLanguage } from '../context/LanguageContext';
 import './SettingsView.css';
 
 function SettingsView() {
+    const { language, setLanguage, t } = useLanguage();
     const [settings, setSettings] = useState(getSettings);
 
     useEffect(() => {
@@ -36,15 +38,20 @@ function SettingsView() {
         }
     };
 
+    const handleLanguageChange = (langId) => {
+        setLanguage(langId);
+        updateSetting('language', langId);
+    };
+
     return (
         <div className="settings-view">
             <div className="settings-content">
-                <h1 className="settings-title">⚙️ Settings</h1>
+                <h1 className="settings-title">⚙️ {t('settings')}</h1>
 
                 {/* Theme Settings */}
                 <div className="settings-section card">
-                    <h2 className="section-title">🎨 Appearance</h2>
-                    <p className="section-description">Choose your preferred theme</p>
+                    <h2 className="section-title">🎨 {t('appearance')}</h2>
+                    <p className="section-description">{t('chooseTheme')}</p>
 
                     <div className="theme-options">
                         <button
@@ -55,7 +62,7 @@ function SettingsView() {
                                 <div className="preview-header"></div>
                                 <div className="preview-content"></div>
                             </div>
-                            <span className="theme-label">☀️ Light Mode</span>
+                            <span className="theme-label">☀️ {t('lightMode')}</span>
                             {settings.theme === 'light' && <span className="active-badge">✓</span>}
                         </button>
 
@@ -67,7 +74,7 @@ function SettingsView() {
                                 <div className="preview-header"></div>
                                 <div className="preview-content"></div>
                             </div>
-                            <span className="theme-label">🌙 Dark Mode</span>
+                            <span className="theme-label">🌙 {t('darkMode')}</span>
                             {settings.theme === 'dark' && <span className="active-badge">✓</span>}
                         </button>
                     </div>
@@ -75,13 +82,13 @@ function SettingsView() {
 
                 {/* Notification Settings */}
                 <div className="settings-section card">
-                    <h2 className="section-title">🔔 Notifications</h2>
-                    <p className="section-description">Get reminded before prayer times</p>
+                    <h2 className="section-title">🔔 {t('notifications')}</h2>
+                    <p className="section-description">{t('forYourMosque')}</p>
 
                     <div className="setting-row">
                         <div className="setting-info">
-                            <span className="setting-label">Prayer Reminders</span>
-                            <span className="setting-hint">For your saved mosque</span>
+                            <span className="setting-label">{t('prayerReminders')}</span>
+                            <span className="setting-hint">{t('forYourMosque')}</span>
                         </div>
                         <label className="toggle-switch">
                             <input
@@ -96,8 +103,8 @@ function SettingsView() {
                     {settings.notifications.enabled && (
                         <div className="setting-row">
                             <div className="setting-info">
-                                <span className="setting-label">Reminder Time</span>
-                                <span className="setting-hint">How early to notify</span>
+                                <span className="setting-label">{t('reminderTime')}</span>
+                                <span className="setting-hint">{t('howEarly')}</span>
                             </div>
                             <select
                                 className="setting-select"
@@ -105,48 +112,27 @@ function SettingsView() {
                                 onChange={(e) => updateNestedSetting('notifications', 'reminderMinutes', parseInt(e.target.value))}
                             >
                                 {REMINDER_OPTIONS.map(opt => (
-                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                    <option key={opt.value} value={opt.value}>{opt.value} {t('minBefore')}</option>
                                 ))}
                             </select>
                         </div>
                     )}
                 </div>
 
-                {/* Calculation Method */}
-                <div className="settings-section card">
-                    <h2 className="section-title">🕋 Prayer Calculation</h2>
-                    <p className="section-description">Method for calculating prayer times</p>
-
-                    <div className="setting-row">
-                        <div className="setting-info">
-                            <span className="setting-label">Calculation Method</span>
-                        </div>
-                        <select
-                            className="setting-select"
-                            value={settings.calculationMethod}
-                            onChange={(e) => updateSetting('calculationMethod', e.target.value)}
-                        >
-                            {CALCULATION_METHODS.map(method => (
-                                <option key={method.id} value={method.id}>{method.name}</option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
-
                 {/* Language */}
                 <div className="settings-section card">
-                    <h2 className="section-title">🌐 Language</h2>
-                    <p className="section-description">Select your preferred language</p>
+                    <h2 className="section-title">🌐 {t('language')}</h2>
+                    <p className="section-description">{t('selectLanguage')}</p>
 
                     <div className="language-options">
                         {LANGUAGES.map(lang => (
                             <button
                                 key={lang.id}
-                                className={`language-option ${settings.language === lang.id ? 'active' : ''}`}
-                                onClick={() => updateSetting('language', lang.id)}
+                                className={`language-option ${language === lang.id ? 'active' : ''}`}
+                                onClick={() => handleLanguageChange(lang.id)}
                             >
                                 {lang.name}
-                                {settings.language === lang.id && <span className="active-badge">✓</span>}
+                                {language === lang.id && <span className="active-badge">✓</span>}
                             </button>
                         ))}
                     </div>
@@ -154,13 +140,13 @@ function SettingsView() {
 
                 {/* Location Settings */}
                 <div className="settings-section card">
-                    <h2 className="section-title">📍 Location</h2>
-                    <p className="section-description">Configure location detection</p>
+                    <h2 className="section-title">📍 {t('location')}</h2>
+                    <p className="section-description">{t('configureLocation')}</p>
 
                     <div className="setting-row">
                         <div className="setting-info">
-                            <span className="setting-label">Auto-detect Location</span>
-                            <span className="setting-hint">Use GPS for prayer times</span>
+                            <span className="setting-label">{t('autoDetect')}</span>
+                            <span className="setting-hint">{t('useGps')}</span>
                         </div>
                         <label className="toggle-switch">
                             <input
@@ -175,11 +161,11 @@ function SettingsView() {
 
                 {/* About Section */}
                 <div className="settings-section card">
-                    <h2 className="section-title">ℹ️ About</h2>
+                    <h2 className="section-title">ℹ️ {t('about')}</h2>
                     <div className="about-content">
                         <p><strong>SalatMap</strong></p>
-                        <p className="text-secondary">Find nearby mosques and accurate prayer times</p>
-                        <p className="version-text">Version 1.0.0</p>
+                        <p className="text-secondary">{t('findMosques')}</p>
+                        <p className="version-text">{t('version')} 1.0.0</p>
                     </div>
                 </div>
             </div>
