@@ -1,7 +1,7 @@
 .map-view {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     z-index: 1;
 }
 
@@ -16,72 +16,15 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: var(--bg-primary);
-    color: var(--text-secondary);
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
 }
 
 .loading-spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid var(--bg-secondary);
-    border-top: 3px solid var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 16px;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Custom Marker Styles */
-.custom-mosque-marker,
-.custom-user-marker {
-    background: none;
-    border: none;
-}
-
-.mosque-marker-icon,
-.user-marker-icon {
-    font-size: 32px;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-}
-
-.map-view {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 140px);
-    z-index: 1;
-}
-
-.leaflet-map {
-    width: 100%;
-    height: 100%;
-}
-
-.map-loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background: var(--bg-primary);
-    color: var(--text-secondary);
-}
-
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--bg-secondary);
-    border-top: 3px solid var(--primary-color);
+    border: 3px solid var(--color-bg-secondary);
+    border-top: 3px solid var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-bottom: 16px;
@@ -123,10 +66,11 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: calc(100% - 40px);
     max-width: 450px;
     z-index: 1000;
     animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
 }
 
 @keyframes slideDown {
@@ -154,6 +98,7 @@
     outline: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: white;
+    box-sizing: border-box;
 }
 
 .map-search-input::placeholder {
@@ -251,7 +196,6 @@
 .map-controls-container {
     position: absolute;
     bottom: 100px;
-    /* Adjusted to be above attribution/scale if needed, or just visual preference */
     right: 16px;
     display: flex;
     flex-direction: column;
@@ -301,7 +245,7 @@
 .zoom-btn {
     width: 48px;
     height: 48px;
-    background: transparent;
+    background: var(--color-primary);
     border: none;
     display: flex;
     align-items: center;
@@ -319,11 +263,11 @@
 }
 
 .zoom-btn:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: var(--color-primary-dark);
 }
 
 .zoom-btn:active {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--color-primary-dark);
 }
 
 .zoom-divider {
@@ -336,13 +280,12 @@
 /* Specific Button Adjustments */
 .location-btn {
     margin-top: 8px;
-    /* Extra space for location button group */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .map-view {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 60px);
     }
 
     .map-search-container {
@@ -409,7 +352,6 @@
 
     .map-controls-container {
         bottom: 90px;
-        /* Adjust for bottom nav */
     }
 }
 
@@ -443,16 +385,16 @@
     color: var(--color-text-secondary);
 }
 
-/* Dark Mode for Controls - Keep them visible/consistent with theme */
+/* Dark Mode for Controls */
 [data-theme="dark"] .map-control-btn,
-[data-theme="dark"] .zoom-control-group,
-[data-theme="dark"] .zoom-btn {
+[data-theme="dark"] .zoom-control-group {
     background: var(--color-bg-card);
     color: var(--color-text);
 }
 
-[data-theme="dark"] .zoom-control-group {
+[data-theme="dark"] .zoom-btn {
     background: var(--color-bg-card);
+    color: var(--color-text);
 }
 
 [data-theme="dark"] .map-control-btn:hover,

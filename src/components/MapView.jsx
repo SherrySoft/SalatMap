@@ -190,6 +190,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                 zoom={13}
                 scrollWheelZoom={true}
                 zoomControl={false}
+                preferCanvas={true}
                 className="leaflet-map"
                 ref={mapRef}
             >

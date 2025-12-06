@@ -1,19 +1,14 @@
 :root {
   /* Light Mode Palette - Blue Theme */
   --color-primary: #3b82f6;
-  /* Blue-500 */
   --color-primary-dark: #1d4ed8;
-  /* Blue-700 */
   --color-primary-light: #60a5fa;
-  /* Blue-400 */
 
   --color-accent: #f59e0b;
-  /* Amber-500 */
   --color-accent-light: #fbbf24;
   --color-accent-dark: #b45309;
 
   --color-bg: #eff6ff;
-  /* Blue-50 */
   --color-bg-secondary: #ffffff;
   --color-bg-card: #ffffff;
 
@@ -22,7 +17,6 @@
   --color-text-light: #94a3b8;
 
   --color-border: #dbeafe;
-  /* Blue-100 */
   --color-shadow: rgba(59, 130, 246, 0.15);
   --color-shadow-strong: rgba(59, 130, 246, 0.25);
 
@@ -50,7 +44,7 @@
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2.25rem;
 
-  /* Shadows - Enhanced */
+  /* Shadows */
   --shadow-sm: 0 2px 4px 0 var(--color-shadow);
   --shadow-md: 0 6px 12px -2px var(--color-shadow);
   --shadow-lg: 0 12px 24px -4px var(--color-shadow);
@@ -59,24 +53,17 @@
 
 /* Dark Mode Theme - Green/Black Theme */
 [data-theme="dark"] {
-  /* Dark Color Palette */
   --color-primary: #10b981;
-  /* Emerald-500 */
   --color-primary-dark: #047857;
-  /* Emerald-700 */
   --color-primary-light: #34d399;
-  /* Emerald-400 */
 
   --color-accent: #fbbf24;
   --color-accent-light: #fcd34d;
   --color-accent-dark: #f59e0b;
 
   --color-bg: #000000;
-  /* Black */
   --color-bg-secondary: #111827;
-  /* Gray-900 */
   --color-bg-card: #1f2937;
-  /* Gray-800 */
 
   --color-text: #f1f5f9;
   --color-text-secondary: #cbd5e1;
@@ -88,380 +75,186 @@
 }
 
 /* Reset & Base Styles */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  #root {
-    min-height: 100vh;
-  }
+html,
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Disable pull-to-refresh */
+  overscroll-behavior-y: none;
+  /* Disable text selection for native feel */
+  user-select: none;
+  -webkit-user-select: none;
+}
 
-  /* App Styles */
-  .app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+#root {
+  min-height: 100vh;
+}
 
-  /* Utilities */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-  }
+/* App Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
 
-  .card {
-    background: var(--color-bg-card);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
 
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+.card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  color: var(--color-text);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-light {
+  color: var(--color-text-light);
+}
+
+/* Section Title */
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(20px);
   }
 
-  .card:hover::before {
+  to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 
-  .card:hover {
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-4px);
-    border-color: rgba(59, 130, 246, 0.2);
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.pulse {
+  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
   }
 
-  .text-primary {
-    color: var(--color-primary);
+  100% {
+    background-position: 1000px 0;
   }
+}
 
-  .text-accent {
-    color: var(--color-accent);
-  }
+/* Skeleton Loading */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--color-border) 25%,
+      var(--color-bg-secondary) 50%,
+      var(--color-border) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s linear infinite;
+  border-radius: var(--radius-md);
+}
 
-  .text-secondary {
-    color: var(--color-text-secondary);
-  }
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  .text-light {
-    color: var(--color-text-light);
-  }
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
 
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-bg);
+}
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+}
 
-  .fade-in {
-    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  @keyframes pulse {
-
-    0%,
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    50% {
-      opacity: 0.85;
-      transform: scale(1.02);
-    }
-  }
-
-  .pulse {
-    animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-
-    100% {
-      background-position: 1000px 0;
-    }
-  }
-
-  /* Skeleton Loading */
-  .skeleton {
-    background: linear-gradient(90deg,
-        var(--color-border) 25%,
-        #f1f5f9 50%,
-        var(--color-border) 75%);
-    background-size: 1000px 100%;
-    animation: shimmer 2s linear infinite;
-    border-radius: var(--radius-md);
-  }
-
-  /* Islamic Pattern Decorations */
-  .islamic-pattern {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .islamic-pattern::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 50%,
-        rgba(59, 130, 246, 0.05) 0%,
-        transparent 50%);
-    pointer-events: none;
-    animation: rotate 30s linear infinite;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Scrollbar Styling */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--color-bg);
-    border-radius: var(--radius-sm);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--color-bg);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    --color-accent: #fbbf24;
-    --color-accent-light: #fcd34d;
-    --color-accent-dark: #f59e0b;
-
-    --color-bg: #000000;
-    /* Black */
-    --color-bg-secondary: #111827;
-    /* Gray-900 */
-    --color-bg-card: #1f2937;
-    /* Gray-800 */
-
-    --color-text: #f1f5f9;
-    --color-text-secondary: #cbd5e1;
-    --color-text-light: #94a3b8;
-
-    --color-border: #374151;
-    --color-shadow: rgba(0, 0, 0, 0.3);
-    --color-shadow-strong: rgba(0, 0, 0, 0.6);
-  }
-
-  /* Reset & Base Styles */
-  * {
-    margin: 0;
-
-    #root {
-      min-height: 100vh;
-    }
-
-    /* App Styles */
-    .app {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Utilities */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-lg);
-    }
-
-    .card {
-      background: var(--color-bg-card);
-      border-radius: var(--radius-xl);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(59, 130, 246, 0.1);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-xl);
-      transform: translateY(-4px);
-      border-color: rgba(59, 130, 246, 0.2);
-    }
-
-    .text-primary {
-      color: var(--color-primary);
-    }
-
-    .text-accent {
-      color: var(--color-accent);
-    }
-
-    .text-secondary {
-      color: var(--color-text-secondary);
-    }
-
-    .text-light {
-      color: var(--color-text-light);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in {
-      animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.85;
-        transform: scale(1.02);
-      }
-    }
-
-    .pulse {
-      animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    @keyframes shimmer {
-      0% {
-        background-position: -1000px 0;
-      }
-
-      100% {
-        background-position: 1000px 0;
-      }
-    }
-
-    /* Skeleton Loading */
-    .skeleton {
-      background: linear-gradient(90deg,
-          var(--color-border) 25%,
-          #f1f5f9 50%,
-          var(--color-border) 75%);
-      background-size: 1000px 100%;
-      animation: shimmer 2s linear infinite;
-      border-radius: var(--radius-md);
-    }
-
-    /* Islamic Pattern Decorations */
-    .islamic-pattern {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .islamic-pattern::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 50%,
-          rgba(59, 130, 246, 0.05) 0%,
-          transparent 50%);
-      pointer-events: none;
-      animation: rotate 30s linear infinite;
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Scrollbar Styling */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--color-bg);
-      border-radius: var(--radius-sm);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--color-bg);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    }
-
-    /* Focus Styles */
-    *:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-      border-radius: var(--radius-sm);
-    }
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
