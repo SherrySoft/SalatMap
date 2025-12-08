@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './Header.css';
 
 function Header({ location, onToggleTheme }) {
+    const { t } = useLanguage();
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -29,7 +31,7 @@ function Header({ location, onToggleTheme }) {
                     <img src="/logo.png" alt="SalatMap Logo" className="app-logo" />
                     <div>
                         <h1 className="app-name">SalatMap</h1>
-                        <p className="app-tagline">Find Mosques & Prayer Times</p>
+                        <p className="app-tagline">{t('findMosques')}</p>
                     </div>
                 </div>
                 <div className="header-actions">

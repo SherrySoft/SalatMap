@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { formatDistance } from '../utils/geo';
+import { useLanguage } from '../context/LanguageContext';
 import './MapView.css';
 
 // Fix for default marker icons in React-Leaflet
@@ -88,6 +89,7 @@ function MapControls({ onLocationClick, onLayerToggle }) {
 }
 
 function MapView({ mosques, location, loading, onMosqueSelect }) {
+    const { t } = useLanguage();
     const mapRef = useRef(null);
     const [mapReady, setMapReady] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -168,7 +170,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
             <div className="map-search-container">
                 <input
                     type="text"
-                    placeholder="Search mosques..."
+                    placeholder={t('searchMosques')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="map-search-input"
@@ -189,7 +191,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                             </div>
                         ))}
                         {filteredMosques.length === 0 && (
-                            <div className="search-no-results">No mosques found</div>
+                            <div className="search-no-results">{t('noMosquesFound')}</div>
                         )}
                     </div>
                 )}
@@ -198,7 +200,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
             {/* Zoom Tip */}
             {showZoomTip && (
                 <div className="map-zoom-tip">
-                    <span>Pinch or use +/- to zoom</span>
+                    <span>{t('zoomTip')}</span>
                 </div>
             )}
 
@@ -233,8 +235,8 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                     <Marker position={[location.latitude, location.longitude]} icon={userIcon}>
                         <Popup>
                             <div className="map-popup">
-                                <h3>Your Location</h3>
-                                <p>📍 You are here</p>
+                                <h3>{t('yourLocation')}</h3>
+                                <p>📍 {t('youAreHere')}</p>
                             </div>
                         </Popup>
                     </Marker>
@@ -259,7 +261,7 @@ function MapView({ mosques, location, loading, onMosqueSelect }) {
                                         className="popup-view-times-btn"
                                         onClick={() => onMosqueSelect(mosque)}
                                     >
-                                        View Prayer Times
+                                        {t('viewPrayerTimes')}
                                     </button>
                                 </div>
                             </Popup>

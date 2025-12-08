@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ReportModal from './ReportModal';
 import { formatDistance } from '../utils/geo';
 import { formatTime, formatTimeRemaining, getNextPrayer } from '../utils/prayerTimes';
+import { useLanguage } from '../context/LanguageContext';
 import './MosqueDetailCard.css';
 
 function MosqueDetailCard({ mosque, userLocation, onClose }) {
+    const { t } = useLanguage();
     const [timeRemaining, setTimeRemaining] = useState('');
     const [nextPrayer, setNextPrayer] = useState(null);
     const [showReportModal, setShowReportModal] = useState(false);
@@ -141,7 +143,7 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
                             <p className="mosque-address">{mosque.address}</p>
                             {mosque.distance !== undefined && (
                                 <div className="distance-badge">
-                                    <span>📍 {formatDistance(mosque.distance)} away</span>
+                                    <span>📍 {formatDistance(mosque.distance)} {t('away')}</span>
                                 </div>
                             )}
                         </div>
@@ -149,17 +151,17 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
 
                     {nextPrayer && (
                         <div className="next-jamat-section">
-                            <div className="next-jamat-label">Next Jamat: {nextPrayer.name}</div>
+                            <div className="next-jamat-label">{t('nextJamat')}: {nextPrayer.name}</div>
                             <div className="next-jamat-time">{nextPrayer.time}</div>
                             <div className="jamat-countdown">
-                                <span>Starts in </span>
+                                <span>{t('startsIn')} </span>
                                 <span className="countdown-mono">{timeRemaining}</span>
                             </div>
                         </div>
                     )}
 
                     <div className="jamat-times-list">
-                        <h3>Jamat Times</h3>
+                        <h3>{t('jamatTimes')}</h3>
                         <div className="times-grid">
                             {Object.entries(mosque.jamatTimes).map(([name, time]) => (
                                 time && (
@@ -174,7 +176,7 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
 
                     {mosque.facilities && mosque.facilities.length > 0 && (
                         <div className="facilities-section">
-                            <h3>Facilities</h3>
+                            <h3>{t('facilities')}</h3>
                             <div className="facilities-list">
                                 {mosque.facilities.map(facility => (
                                     <span key={facility} className="facility-badge">{facility}</span>
@@ -186,7 +188,7 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
                     <div className="action-buttons">
                         {mosque.lastUpdated && (
                             <div className="last-updated-section">
-                                <span className="last-updated-label">Last Updated: </span>
+                                <span className="last-updated-label">{t('lastUpdated')}: </span>
                                 <span className="last-updated-date">{mosque.lastUpdated}</span>
                             </div>
                         )}
@@ -203,13 +205,13 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
                                 }
                             }}
                         >
-                            {isMyMosque ? '⭐ My Mosque' : '☆ Set as My Mosque'}
+                            {isMyMosque ? `⭐ ${t('myMosque')}` : `☆ ${t('setAsMyMosque')}`}
                         </button>
 
                         <button className="direction-button" onClick={() => {
                             window.open(`https://www.google.com/maps/dir/?api=1&destination=${mosque.latitude},${mosque.longitude}`, '_blank');
                         }}>
-                            Get Directions 🗺️
+                            {t('getDirections')} 🗺️
                         </button>
 
                         <button className="report-button" onClick={() => setShowReportModal(true)} style={{
@@ -223,7 +225,7 @@ function MosqueDetailCard({ mosque, userLocation, onClose }) {
                             cursor: 'pointer',
                             fontSize: '0.9rem'
                         }}>
-                            Report Incorrect Timing ⚠️
+                            {t('reportTiming')} ⚠️
                         </button>
                     </div>
                 </div>
