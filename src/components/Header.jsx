@@ -28,7 +28,7 @@ function Header({ location, onToggleTheme }) {
         <header className="header islamic-pattern">
             <div className="header-content">
                 <div className="header-title">
-                    <img src="/logo.png" alt="SalatMap Logo" className="app-logo" />
+                    <img src="/icon.png" alt="SalatMap Logo" className="app-logo" />
                     <div>
                         <h1 className="app-name">SalatMap</h1>
                         <p className="app-tagline">{t('findMosques')}</p>

@@ -5,9 +5,8 @@ function SplashScreen() {
     return (
         <div className="splash-screen">
             <div className="splash-content">
-                <img src="/logo.png" alt="SalatMap Logo" className="splash-logo" />
-                <h1 className="splash-title">SalatMap</h1>
-                <p className="splash-subtitle">Find Peace, Anywhere.</p>
+                <img src="/icon.png" alt="SalatMap Logo" className="splash-logo" />
+
 
                 <div className="loading-indicator">
                     <div className="spinner"></div>
